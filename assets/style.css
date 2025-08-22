@@ -153,6 +153,7 @@ button:active {
 }
 .foot.small {
    margin-top: 12px;
+   padding-bottom: 15px;
    color: var(--muted);
    font-size: 13px;
    text-align: center;
