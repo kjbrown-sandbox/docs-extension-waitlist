@@ -15,7 +15,9 @@
    flex-direction: column;
 }
 
-* { box-sizing: border-box; }
+* {
+   box-sizing: border-box;
+}
 html,
 body,
 #root {
@@ -23,7 +25,7 @@ body,
 }
 
 body {
-   font-family: 'Figtree', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+   font-family: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
    line-height: 1.45;
    color: var(--white);
    background: linear-gradient(180deg, #0b0303 0%, #180606 100%);
@@ -32,17 +34,18 @@ body {
 }
 
 .signup {
-   padding: 12px 18px; /* slightly tighter so left column reads shorter */
+   padding: 20px 24px; /* more internal padding for breathing room */
    border-radius: 12px;
    background: rgba(255, 255, 255, 0.04);
    align-self: center; /* center the signup box vertically within the grid cell */
-   max-height: 48vh; /* keep it relatively compact */
-   overflow: hidden;
+   /* allow the signup area to grow so CTA/button is never clipped */
+   max-height: none;
+   overflow: visible;
 }
 .content {
    display: grid;
    grid-template-columns: 45% 55%; /* left column a touch wider */
-   gap: 28px;
+   gap: 48px; /* increased spacing between columns */
    align-items: center; /* vertically center both columns */
    min-height: 0; /* allow container to size naturally */
    margin: auto 0; /* center vertically within the container */
@@ -92,8 +95,14 @@ form#waitlist-form button {
 }
 
 /* make sure non-title text uses Figtree */
-body, .subtext, .message, label, input, button, .foot.small {
-   font-family: 'Figtree', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+body,
+.subtext,
+.message,
+label,
+input,
+button,
+.foot.small {
+   font-family: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 button {
    margin-top: 30px;
@@ -115,7 +124,7 @@ button:hover {
 
 button:active {
    transform: translateY(0);
-   box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 .message {
    margin-top: 12px;
@@ -130,15 +139,16 @@ button:active {
    align-items: center;
    justify-content: center;
    min-height: 76vh; /* make the right column taller/visually larger */
+   overflow: visible; /* ensure the image is never cropped */
 }
 
 .screenshot img {
    width: 100%;
-   max-height: calc(100vh - 100px); /* larger image allowed, more prominent */
+   max-height: calc(100vh - 100px); /* scale to fit viewport but don't crop */
    height: auto;
    border-radius: 8px;
-   box-shadow: 0 28px 80px rgba(0,0,0,0.55);
-   object-fit: cover;
+   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
+   object-fit: contain; /* always show the full image */
 }
 .foot.small {
    margin-top: 12px;
@@ -158,19 +168,40 @@ button:active {
    .signup {
       order: -1;
    }
-   .screenshot {
-      min-height: 180px;
+   /* tighten type when stacked vertically */
+   .title {
+      font-size: 34px;
+      line-height: 1.05;
    }
+   .subtext {
+      font-size: 16px;
+      margin: 14px 0;
+   }
+
+   /* make the screenshot taller and crop only the sides (limit crop to ~15%) */
+   .signup {
+      /* don't hide vertically on small screens; allow content to expand */
+      max-height: none;
+      overflow: visible;
+      padding: 18px 20px;
+   }
+
    .screenshot {
+      min-height: 56vh;
+      overflow: visible; /* never crop image on mobile either */
       padding: 12px;
       border-radius: 8px;
    }
    .screenshot img {
-      max-height: none;
+      /* scale the image to fit within the container without cropping */
       width: 100%;
       height: auto;
+      max-width: 100%;
+      max-height: calc(100vh - 140px);
       object-fit: contain;
       filter: none;
       border-radius: 8px;
+      display: block;
+      margin: 0 auto;
    }
 }
