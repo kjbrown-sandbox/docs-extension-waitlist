@@ -2,7 +2,7 @@
    --bg: #0b0303; /* even darker warm background */
    --card: #1b0c0c; /* dark card */
    --muted: #d7bfb7; /* warm muted text (keep for footer) */
-   --accent: #ff6a3d; /* bright orange/red CTA */
+   --accent: #d34f43; /* muted warm red CTA (sleeker) */
    --white: #fff8f6;
 }
 
@@ -15,6 +15,7 @@
    flex-direction: column;
 }
 
+* { box-sizing: border-box; }
 html,
 body,
 #root {
@@ -22,8 +23,7 @@ body,
 }
 
 body {
-   font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
-      Arial;
+   font-family: 'Figtree', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
    line-height: 1.45;
    color: var(--white);
    background: linear-gradient(180deg, #0b0303 0%, #180606 100%);
@@ -32,15 +32,18 @@ body {
 }
 
 .signup {
-   padding: 48px;
+   padding: 12px 18px; /* slightly tighter so left column reads shorter */
    border-radius: 12px;
-   background: rgba(255, 255, 255, 0.04); /* slightly stronger contrast */
+   background: rgba(255, 255, 255, 0.04);
+   align-self: center; /* center the signup box vertically within the grid cell */
+   max-height: 48vh; /* keep it relatively compact */
+   overflow: hidden;
 }
 .content {
    display: grid;
-   grid-template-columns: 45% 55%; /* slightly wider left column */
-   gap: 24px;
-   align-items: center;
+   grid-template-columns: 45% 55%; /* left column a touch wider */
+   gap: 28px;
+   align-items: center; /* vertically center both columns */
    min-height: 0; /* allow container to size naturally */
    margin: auto 0; /* center vertically within the container */
 }
@@ -54,7 +57,7 @@ body {
    color: var(--muted);
    font-size: 20px;
    line-height: 1.2;
-   margin: 14px 0;
+   margin: 24px 0;
 }
 label.sr-only {
    position: absolute;
@@ -70,14 +73,30 @@ label.sr-only {
 input[type="email"] {
    width: 100%;
    padding: 14px;
+   margin-top: 20px;
    border-radius: 10px;
    border: 1px solid rgba(255, 255, 255, 0.06);
    background: rgba(255, 255, 255, 0.02);
    color: var(--white);
    outline: none;
 }
+form#waitlist-form {
+   display: flex;
+   flex-direction: column;
+   align-items: stretch; /* make inputs align to container padding */
+}
+
+form#waitlist-form button {
+   margin-top: 18px;
+   width: 100%;
+}
+
+/* make sure non-title text uses Figtree */
+body, .subtext, .message, label, input, button, .foot.small {
+   font-family: 'Figtree', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
 button {
-   margin-top: 12px;
+   margin-top: 30px;
    padding: 14px 18px;
    border-radius: 10px;
    border: none;
@@ -85,17 +104,18 @@ button {
    color: #fff;
    font-weight: 700;
    cursor: pointer;
-   box-shadow: 0 6px 18px rgba(255, 106, 61, 0.18);
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
    transition: transform 120ms ease, box-shadow 120ms ease, filter 120ms ease;
 }
 
 button:hover {
-   transform: translateY(-2px);
-   filter: brightness(1.03);
+   transform: translateY(-1px);
+   filter: brightness(0.98);
 }
 
 button:active {
    transform: translateY(0);
+   box-shadow: 0 2px 6px rgba(0,0,0,0.12);
 }
 .message {
    margin-top: 12px;
@@ -103,21 +123,22 @@ button:active {
    font-size: 14px;
 }
 .screenshot {
-   background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
-   padding: 16px;
-   border-radius: 12px;
+   background: transparent; /* no box around screenshot */
+   padding: 0;
+   border-radius: 0;
    display: flex;
    align-items: center;
    justify-content: center;
+   min-height: 76vh; /* make the right column taller/visually larger */
 }
 
 .screenshot img {
    width: 100%;
-   max-height: calc(100vh - 260px); /* keep image smaller so footer stays visible */
+   max-height: calc(100vh - 100px); /* larger image allowed, more prominent */
    height: auto;
-   border-radius: 10px;
-   filter: drop-shadow(0 20px 60px rgba(20, 6, 6, 0.6));
-   object-fit: contain;
+   border-radius: 8px;
+   box-shadow: 0 28px 80px rgba(0,0,0,0.55);
+   object-fit: cover;
 }
 .foot.small {
    margin-top: 12px;
