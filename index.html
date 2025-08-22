@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <title>Docs Extension — Writing stats in Google Docs (Waitlist)</title>
+      <link rel="stylesheet" href="/assets/style.css" />
+      <!-- Replace G-XXXXXXX with your GA4 measurement ID -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag() {
+            dataLayer.push(arguments);
+         }
+         gtag("js", new Date());
+         gtag("config", "G-B1R68EEGL9");
+      </script>
+   </head>
+   <body>
+      <main class="container">
+         <header class="hero">
+            <h1>Get real-time writing stats inside Google Docs</h1>
+            <p class="lede">
+               A Chrome extension that watches for Google Docs and surfaces actionable metrics about
+               your writing — readability, pacing, clarity signals, and more. Join the waitlist to
+               get early access.
+            </p>
+         </header>
+
+         <section class="content">
+            <div class="screenshot">
+               <img src="/assets/screenshot-placeholder.png" alt="Product screenshot" />
+            </div>
+
+            <aside class="signup">
+               <h2>Join the waitlist</h2>
+               <p>
+                  Enter your email and we'll notify you when we launch. No spam — unsubscribe any
+                  time.
+               </p>
+
+               <form id="waitlist-form">
+                  <label for="email">Email</label>
+                  <input
+                     id="email"
+                     name="email"
+                     type="email"
+                     required
+                     placeholder="you@example.com"
+                     autocomplete="email"
+                  />
+                  <input type="hidden" name="utm_source" id="utm_source" />
+                  <input type="hidden" name="utm_medium" id="utm_medium" />
+                  <input type="hidden" name="utm_campaign" id="utm_campaign" />
+                  <input type="hidden" name="referrer" id="referrer" />
+                  <button id="submit">Join</button>
+               </form>
+
+               <div id="message" class="message" aria-live="polite"></div>
+            </aside>
+         </section>
+
+         <footer class="foot">
+            By joining you agree to receive product updates. See our <a href="#">privacy note</a>.
+         </footer>
+      </main>
+
+      <script src="/assets/script.js" defer></script>
+   </body>
+</html>
