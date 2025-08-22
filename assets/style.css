@@ -107,6 +107,7 @@ button,
 button {
    margin-top: 30px;
    padding: 14px 18px;
+   font-size: 17px; /* slightly larger CTA text */
    border-radius: 10px;
    border: none;
    background: var(--accent);
