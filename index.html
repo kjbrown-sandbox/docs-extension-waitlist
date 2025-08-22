@@ -5,6 +5,10 @@
       <meta name="viewport" content="width=device-width,initial-scale=1" />
       <title>Docs Extension — Writing stats in Google Docs (Waitlist)</title>
       <link rel="stylesheet" href="/assets/style.css" />
+      <link
+         href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap"
+         rel="stylesheet"
+      />
       <!-- Replace G-XXXXXXX with your GA4 measurement ID -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
       <script>
@@ -18,29 +22,17 @@
    </head>
    <body>
       <main class="container">
-         <header class="hero">
-            <h1>Get real-time writing stats inside Google Docs</h1>
-            <p class="lede">
-               A Chrome extension that watches for Google Docs and surfaces actionable metrics about
-               your writing — readability, pacing, clarity signals, and more. Join the waitlist to
-               get early access.
-            </p>
-         </header>
-
          <section class="content">
-            <div class="screenshot">
-               <img src="/assets/screenshot-placeholder.png" alt="Product screenshot" />
-            </div>
-
             <aside class="signup">
-               <h2>Join the waitlist</h2>
-               <p>
-                  Enter your email and we'll notify you when we launch. No spam — unsubscribe any
-                  time.
+               <h1 class="title">For lovers of Google Docs and writing</h1>
+               <p class="subtext">
+                  Yup! A Chrome extension that plugs right in to what you're already writing—no
+                  fuss, no accounts, no ads, just you and your words.
                </p>
+               <p class="subtext">Currently in pre-access.</p>
 
                <form id="waitlist-form">
-                  <label for="email">Email</label>
+                  <label for="email" class="sr-only">Email</label>
                   <input
                      id="email"
                      name="email"
@@ -53,16 +45,18 @@
                   <input type="hidden" name="utm_medium" id="utm_medium" />
                   <input type="hidden" name="utm_campaign" id="utm_campaign" />
                   <input type="hidden" name="referrer" id="referrer" />
-                  <button id="submit">Join</button>
+                  <button id="submit">Tell me when it's ready!</button>
                </form>
 
                <div id="message" class="message" aria-live="polite"></div>
             </aside>
+
+            <div class="screenshot">
+               <img src="/assets/screenshot-2.jpg" alt="Product screenshot" />
+            </div>
          </section>
 
-         <footer class="foot">
-            By joining you agree to receive product updates. See our <a href="#">privacy note</a>.
-         </footer>
+         <footer class="foot small">Developed by me, a friendly dev and writer. :)</footer>
       </main>
 
       <script src="/assets/script.js" defer></script>
