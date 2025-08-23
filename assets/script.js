@@ -9,6 +9,16 @@
    document.getElementById("utm_medium").value = getParam("utm_medium");
    document.getElementById("utm_campaign").value = getParam("utm_campaign");
    document.getElementById("referrer").value = document.referrer || "";
+   function startAnimations() {
+      const animatedElements = document.querySelectorAll(
+         'body, input[type="email"], form#waitlist-form button, .signup, .title, .subtext, .screenshot, .foot.small'
+      );
+      animatedElements.forEach(element => {
+         element.style.animationPlayState = 'running';
+      });
+   }
+
+   document.addEventListener('DOMContentLoaded', startAnimations);
 
    const form = document.getElementById("waitlist-form");
    const emailInput = document.getElementById("email");
